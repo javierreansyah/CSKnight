@@ -1,25 +1,30 @@
 extends CharacterBody2D
 
+signal player_died
 
 const SPEED = 150.0
 const JUMP_VELOCITY = -350.0
 
-# Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
 @onready var animated_sprite = $AnimatedSprite2D
 @onready var all_interactions = []
 @onready var interaction_label = $InteractionComponent/InteractionLabel
 
+var is_dead = false
+
 func _ready():
 	update_interaction()
+	add_to_group("player")
 
 func _physics_process(delta):
-	#Interaction
+	if is_dead:
+		return  # Stop further processing if the player is dead
+
+	# Interaction
 	if Input.is_action_just_pressed("interact"):
 		execute_interaction()
-	
-	
+
 	# Add the gravity.
 	if not is_on_floor():
 		velocity.y += gravity * delta
@@ -29,14 +34,13 @@ func _physics_process(delta):
 		velocity.y = JUMP_VELOCITY
 
 	# Get the input direction and handle the movement/deceleration.
-	# As good practice, you should replace UI actions with custom gameplay actions.
 	var direction = Input.get_axis("move_left", "move_right")
-	
+
 	if direction > 0:
 		animated_sprite.flip_h = false
 	elif direction < 0:
 		animated_sprite.flip_h = true
-	
+
 	# Animation
 	if is_on_floor():
 		if direction == 0:
@@ -45,8 +49,7 @@ func _physics_process(delta):
 			animated_sprite.play("walk")
 	else:
 		animated_sprite.play("jump")
-	
-	
+
 	if direction:
 		velocity.x = direction * SPEED
 	else:
@@ -62,16 +65,22 @@ func _on_interaction_area_area_entered(area):
 func _on_interaction_area_area_exited(area):
 	all_interactions.erase(area)
 	update_interaction()
-	
+
 func update_interaction():
-	if all_interactions && !all_interactions[0].has_interacted:
+	if all_interactions and not all_interactions[0].has_interacted:
 		interaction_label.text = "[E] to interact"
 	else:
 		interaction_label.text = ""
 
 func execute_interaction():
-	if all_interactions && !all_interactions[0].has_interacted:
+	if all_interactions and not all_interactions[0].has_interacted:
 		var current_interaction = all_interactions[0]
 		print("Halo")
-		all_interactions[0].has_interacted = true
+		current_interaction.has_interacted = true
 		update_interaction()
+
+func die():
+	is_dead = true
+	animated_sprite.play("dead")
+	velocity = Vector2.ZERO  # Stop all movement
+	emit_signal("player_died")  # Emit the signal when the player dies

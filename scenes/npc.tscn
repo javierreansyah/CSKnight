@@ -1,10 +1,21 @@
-[gd_scene load_steps=15 format=3 uid="uid://dvajyupbu24wi"]
+[gd_scene load_steps=16 format=3 uid="uid://dvajyupbu24wi"]
 
 [ext_resource type="Texture2D" uid="uid://mn8kurqyt2g4" path="res://assets/FreeKnight_v1/Colour2/NoOutline/120x80_PNGSheets/_Idle.png" id="1_brwbu"]
 [ext_resource type="PackedScene" uid="uid://1btl0tw7f6ad" path="res://scenes/interaction_area.tscn" id="3_01xw8"]
 
 [sub_resource type="GDScript" id="GDScript_iv16v"]
 script/source = "extends Area2D
+
+@onready var player = get_tree().get_nodes_in_group(\"player\")[0]
+@onready var animated_sprite = $AnimatedSprite2D
+
+func _physics_process(delta):
+	face_player()
+
+func face_player():
+	if player:
+		var direction_to_player = player.global_position - global_position
+		animated_sprite.flip_h = direction_to_player.x < 0
 "
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_o8he0"]
@@ -85,6 +96,9 @@ animations = [{
 "speed": 10.0
 }]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6njqe"]
+size = Vector2(15, 37)
+
 [node name="NPC" type="Area2D"]
 position = Vector2(5, -41)
 script = SubResource("GDScript_iv16v")
@@ -96,5 +110,7 @@ frame_progress = 0.335424
 
 [node name="InteractionArea" parent="." instance=ExtResource("3_01xw8")]
 position = Vector2(-5, 19)
-interact_type = "print"
-interact_value = "Hallo"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-5.5, 21.5)
+shape = SubResource("RectangleShape2D_6njqe")
