@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://6h6v8qw3gx00"]
+
+[ext_resource type="Texture2D" uid="uid://0etiqp88pebw" path="res://assets/Legacy Adventure Pack - RUINS/Legacy Adventure Pack - RUINS/Assets/Assets.png" id="1_gqy7s"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_q2uc4"]
+size = Vector2(46, 5)
+
+[node name="Platform1" type="AnimatableBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_gqy7s")
+region_enabled = true
+region_rect = Rect2(9, 144, 46, 10)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -2.5)
+shape = SubResource("RectangleShape2D_q2uc4")
+one_way_collision = true

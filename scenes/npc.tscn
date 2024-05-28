@@ -1,0 +1,99 @@
+[gd_scene load_steps=15 format=3 uid="uid://dvajyupbu24wi"]
+
+[ext_resource type="Texture2D" uid="uid://mn8kurqyt2g4" path="res://assets/FreeKnight_v1/Colour2/NoOutline/120x80_PNGSheets/_Idle.png" id="1_brwbu"]
+[ext_resource type="PackedScene" uid="uid://1btl0tw7f6ad" path="res://scenes/interaction_area.tscn" id="3_01xw8"]
+
+[sub_resource type="GDScript" id="GDScript_iv16v"]
+script/source = "extends Area2D
+"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o8he0"]
+atlas = ExtResource("1_brwbu")
+region = Rect2(0, 0, 120, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_71ojx"]
+atlas = ExtResource("1_brwbu")
+region = Rect2(120, 0, 120, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mxosl"]
+atlas = ExtResource("1_brwbu")
+region = Rect2(240, 0, 120, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bli5q"]
+atlas = ExtResource("1_brwbu")
+region = Rect2(360, 0, 120, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_812jg"]
+atlas = ExtResource("1_brwbu")
+region = Rect2(480, 0, 120, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mmmfe"]
+atlas = ExtResource("1_brwbu")
+region = Rect2(600, 0, 120, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t5qs4"]
+atlas = ExtResource("1_brwbu")
+region = Rect2(720, 0, 120, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m4qog"]
+atlas = ExtResource("1_brwbu")
+region = Rect2(840, 0, 120, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_37yvr"]
+atlas = ExtResource("1_brwbu")
+region = Rect2(960, 0, 120, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d83pf"]
+atlas = ExtResource("1_brwbu")
+region = Rect2(1080, 0, 120, 80)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_i7lgx"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o8he0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_71ojx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mxosl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bli5q")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_812jg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mmmfe")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t5qs4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m4qog")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_37yvr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d83pf")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
+
+[node name="NPC" type="Area2D"]
+position = Vector2(5, -41)
+script = SubResource("GDScript_iv16v")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_i7lgx")
+autoplay = "default"
+frame_progress = 0.335424
+
+[node name="InteractionArea" parent="." instance=ExtResource("3_01xw8")]
+position = Vector2(-5, 19)
+interact_label = "[E] to interact"

@@ -1,0 +1,113 @@
+[gd_scene load_steps=17 format=3 uid="uid://xhfvlhmdefy4"]
+
+[ext_resource type="Texture2D" uid="uid://bcvnxbfl7p84q" path="res://assets/Adventurer-1.5/Individual Sprites/adventurer-idle-00.png" id="1_217wf"]
+[ext_resource type="Script" path="res://scripts/player.gd" id="1_hkdsn"]
+[ext_resource type="Texture2D" uid="uid://bhhm3qf87d0j1" path="res://assets/Adventurer-1.5/Individual Sprites/adventurer-idle-01.png" id="2_7wtwx"]
+[ext_resource type="Texture2D" uid="uid://b7il73gkt41t7" path="res://assets/Adventurer-1.5/Individual Sprites/adventurer-idle-02.png" id="3_akuo0"]
+[ext_resource type="Texture2D" uid="uid://cn00v4je7d44w" path="res://assets/Adventurer-1.5/Individual Sprites/adventurer-idle-03.png" id="4_6d5o5"]
+[ext_resource type="Texture2D" uid="uid://du4titt1llaij" path="res://assets/Adventurer-1.5/Individual Sprites/adventurer-jump-03.png" id="7_t2v11"]
+[ext_resource type="Texture2D" uid="uid://do2lcvqnsdpw4" path="res://assets/Adventurer-1.5/Individual Sprites/adventurer-run-00.png" id="8_cxlp3"]
+[ext_resource type="Texture2D" uid="uid://31alcrnqe3od" path="res://assets/Adventurer-1.5/Individual Sprites/adventurer-run-01.png" id="9_x41bg"]
+[ext_resource type="Texture2D" uid="uid://lxex3j7lsy5t" path="res://assets/Adventurer-1.5/Individual Sprites/adventurer-run-02.png" id="10_fg7ky"]
+[ext_resource type="Texture2D" uid="uid://c1i3gktp3bj0k" path="res://assets/Adventurer-1.5/Individual Sprites/adventurer-run-03.png" id="11_wmff1"]
+[ext_resource type="Texture2D" uid="uid://c4b2ndmiuv1bs" path="res://assets/Adventurer-1.5/Individual Sprites/adventurer-run-04.png" id="12_fl7of"]
+[ext_resource type="FontFile" uid="uid://dostsdiopdo7" path="res://fonts/m5x7.ttf" id="13_2qma6"]
+[ext_resource type="Texture2D" uid="uid://bqmsjxxoyys74" path="res://assets/Adventurer-1.5/Individual Sprites/adventurer-run-05.png" id="13_xapp3"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_wtllf"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_217wf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_7wtwx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_akuo0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_6d5o5")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_t2v11")
+}],
+"loop": true,
+"name": &"jump",
+"speed": 1.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("8_cxlp3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_x41bg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_fg7ky")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_wmff1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_fl7of")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_xapp3")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 8.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_d18ab"]
+size = Vector2(14, 28)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_et5r1"]
+radius = 33.0606
+
+[node name="Player" type="CharacterBody2D"]
+collision_layer = 2
+script = ExtResource("1_hkdsn")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -18)
+sprite_frames = SubResource("SpriteFrames_wtllf")
+animation = &"jump"
+autoplay = "idle"
+frame_progress = 0.869264
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(1, -15)
+shape = SubResource("RectangleShape2D_d18ab")
+
+[node name="InteractionComponent" type="Node2D" parent="."]
+
+[node name="InteractionArea" type="Area2D" parent="InteractionComponent"]
+z_index = 10
+collision_layer = 0
+collision_mask = 4
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionComponent/InteractionArea"]
+position = Vector2(0, -13)
+shape = SubResource("CircleShape2D_et5r1")
+
+[node name="InteractionLabel" type="Label" parent="InteractionComponent"]
+offset_left = -79.0
+offset_top = -47.0
+offset_right = 79.0
+offset_bottom = -34.0
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("13_2qma6")
+theme_override_font_sizes/font_size = 16
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="area_entered" from="InteractionComponent/InteractionArea" to="." method="_on_interaction_area_area_entered"]
+[connection signal="area_exited" from="InteractionComponent/InteractionArea" to="." method="_on_interaction_area_area_exited"]
