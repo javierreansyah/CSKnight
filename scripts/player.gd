@@ -15,6 +15,11 @@ func _ready():
 	update_interaction()
 
 func _physics_process(delta):
+	#Interaction
+	if Input.is_action_just_pressed("interact"):
+		execute_interaction()
+	
+	
 	# Add the gravity.
 	if not is_on_floor():
 		velocity.y += gravity * delta
@@ -67,5 +72,5 @@ func update_interaction():
 func execute_interaction():
 	if all_interactions:
 		var current_interaction = all_interactions[0]
-		#match current_interaction.interact_type:
-			#pass
+		match current_interaction.interact_type:
+			"print" : print(current_interaction.interact_value)
