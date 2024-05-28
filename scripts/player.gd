@@ -64,13 +64,14 @@ func _on_interaction_area_area_exited(area):
 	update_interaction()
 	
 func update_interaction():
-	if all_interactions:
-		interaction_label.text = all_interactions[0].interact_label
+	if all_interactions && !all_interactions[0].has_interacted:
+		interaction_label.text = "[E] to interact"
 	else:
 		interaction_label.text = ""
 
 func execute_interaction():
-	if all_interactions:
+	if all_interactions && !all_interactions[0].has_interacted:
 		var current_interaction = all_interactions[0]
-		match current_interaction.interact_type:
-			"print" : print(current_interaction.interact_value)
+		print("Halo")
+		all_interactions[0].has_interacted = true
+		update_interaction()

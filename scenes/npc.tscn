@@ -96,6 +96,5 @@ frame_progress = 0.335424
 
 [node name="InteractionArea" parent="." instance=ExtResource("3_01xw8")]
 position = Vector2(-5, 19)
-interact_label = "[E] to interact"
 interact_type = "print"
 interact_value = "Hallo"
