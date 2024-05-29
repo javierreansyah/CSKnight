@@ -1,0 +1,44 @@
+[gd_scene load_steps=7 format=3 uid="uid://dv5twskred0wl"]
+
+[ext_resource type="Script" path="res://scripts/scroll.gd" id="1_0wtvy"]
+[ext_resource type="Texture2D" uid="uid://b8mgp16fk2uhu" path="res://assets/ScrollKit/pngs/medium.png" id="1_or8jy"]
+[ext_resource type="Texture2D" uid="uid://cnghaor8q6vdb" path="res://assets/ScrollKit/pngs/closed.png" id="2_h2ncj"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3yxh6"]
+atlas = ExtResource("2_h2ncj")
+region = Rect2(0, 0, 1157, 314)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sia21"]
+atlas = ExtResource("1_or8jy")
+region = Rect2(0, 0, 1077, 1397)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_kixpn"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3yxh6")
+}],
+"loop": true,
+"name": &"close-scroll",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sia21")
+}],
+"loop": true,
+"name": &"open-scroll",
+"speed": 5.0
+}]
+
+[node name="Area2D" type="Area2D"]
+script = ExtResource("1_0wtvy")
+
+[node name="ScrollAnimated2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.0160425, 0.0178394)
+sprite_frames = SubResource("SpriteFrames_kixpn")
+animation = &"close-scroll"
+
+[node name="QuestionLabel" type="Label" parent="ScrollAnimated2D"]
+offset_right = 40.0
+offset_bottom = 23.0
