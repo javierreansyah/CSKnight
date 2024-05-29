@@ -4,12 +4,14 @@ extends Node
 @onready var player = $"../Player"
 @onready var win_label = $"../CanvasLayer/WinLabel"
 @onready var score_label = $"../CanvasLayer/ScoreLabel"
+@onready var scroll = $"../Player/Scroll"
 
 func _ready():
 	player.connect("player_died", Callable(self, "_on_player_died"))
 	death_label.visible = false
 	win_label.visible = false
 	score_label.text = "Score:" + str(score) + "/3"
+	scroll.connect("point", Callable(self, "add_point"))
 
 func _on_player_died():
 	death_label.text = "You Died!"

@@ -12,33 +12,26 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 @onready var interaction_label = $InteractionComponent/InteractionLabel
 @onready var scroll = $Scroll
 
-
-
-signal scroll_book
-
 var is_dead = false
 
 func _ready():
 	update_interaction()
 	add_to_group("player")
+	scroll.connect("wrong_answer_selected", Callable(self, "die"))
 
 func _physics_process(delta):
 	if is_dead:
-		return  # Stop further processing if the player is dead
+		return
 
-	# Interaction
 	if Input.is_action_just_pressed("interact"):
 		execute_interaction()
 
-	# Add the gravity.
 	if not is_on_floor():
 		velocity.y += gravity * delta
 
-	# Handle jump.
 	if Input.is_action_just_pressed("jump") and is_on_floor():
 		velocity.y = JUMP_VELOCITY
 
-	# Get the input direction and handle the movement/deceleration.
 	var direction = Input.get_axis("move_left", "move_right")
 
 	if direction > 0:
@@ -46,7 +39,6 @@ func _physics_process(delta):
 	elif direction < 0:
 		animated_sprite.flip_h = true
 
-	# Animation
 	if is_on_floor():
 		if direction == 0:
 			animated_sprite.play("idle")
@@ -72,11 +64,9 @@ func _on_interaction_area_area_exited(area):
 	update_interaction()
 
 func update_interaction():
-	if all_interactions && !all_interactions[0].has_interacted:
-		scroll.in_area()
+	if all_interactions and !all_interactions[0].has_interacted:
 		interaction_label.text = "[E] to interact"
 	else:
-		scroll.not_in_area()
 		interaction_label.text = ""
 
 func execute_interaction():

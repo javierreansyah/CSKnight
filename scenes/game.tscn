@@ -9,7 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://0etiqp88pebw" path="res://assets/Legacy Adventure Pack - RUINS/Legacy Adventure Pack - RUINS/Assets/Assets.png" id="4_5r0s4"]
 [ext_resource type="PackedScene" uid="uid://dumwwh2fetudg" path="res://scenes/kill_zone.tscn" id="6_njje1"]
 [ext_resource type="PackedScene" uid="uid://dvajyupbu24wi" path="res://scenes/npc.tscn" id="8_0sfu3"]
-[ext_resource type="PackedScene" uid="uid://ku8xhkdqin2l" path="res://scenes/skeleton.tscn" id="8_4ay53"]
+[ext_resource type="PackedScene" path="res://scenes/skeleton.tscn" id="8_4ay53"]
 [ext_resource type="FontFile" uid="uid://dostsdiopdo7" path="res://fonts/m5x7.ttf" id="10_3jeuq"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_flr00"]

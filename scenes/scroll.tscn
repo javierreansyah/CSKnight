@@ -1,24 +1,9 @@
-[gd_scene load_steps=18 format=3 uid="uid://dv5twskred0wl"]
+[gd_scene load_steps=16 format=3 uid="uid://dv5twskred0wl"]
 
 [ext_resource type="Script" path="res://scripts/scroll.gd" id="1_0wtvy"]
 [ext_resource type="Texture2D" uid="uid://b8mgp16fk2uhu" path="res://assets/ScrollKit/pngs/medium.png" id="1_or8jy"]
 [ext_resource type="Texture2D" uid="uid://cnghaor8q6vdb" path="res://assets/ScrollKit/pngs/closed.png" id="2_h2ncj"]
 [ext_resource type="FontFile" uid="uid://dostsdiopdo7" path="res://fonts/m5x7.ttf" id="4_y1rdq"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_3yxh6"]
-atlas = ExtResource("2_h2ncj")
-region = Rect2(0, 0, 1157, 314)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_kixpn"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_3yxh6")
-}],
-"loop": true,
-"name": &"close-scroll",
-"speed": 5.0
-}]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_eq3hf"]
 atlas = ExtResource("1_or8jy")
@@ -39,13 +24,16 @@ region = Rect2(0, 0, 1077, 1397)
 [sub_resource type="SpriteFrames" id="SpriteFrames_mhidd"]
 animations = [{
 "frames": [{
-"duration": 1.0,
+"duration": 2.0,
 "texture": SubResource("AtlasTexture_eq3hf")
 }, {
-"duration": 1.0,
+"duration": 2.0,
 "texture": SubResource("AtlasTexture_b158l")
+}, {
+"duration": 1.0,
+"texture": null
 }],
-"loop": true,
+"loop": false,
 "name": &"close-scroll",
 "speed": 5.0
 }, {
@@ -93,11 +81,6 @@ font_color = Color(0, 0, 0, 1)
 
 [node name="Area2D" type="Area2D"]
 script = ExtResource("1_0wtvy")
-
-[node name="Scroll" type="AnimatedSprite2D" parent="."]
-scale = Vector2(0.0160425, 0.0178394)
-sprite_frames = SubResource("SpriteFrames_kixpn")
-animation = &"close-scroll"
 
 [node name="ScrollQ" type="AnimatedSprite2D" parent="."]
 position = Vector2(9.53674e-07, 37)
