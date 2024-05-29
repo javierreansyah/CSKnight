@@ -20,7 +20,7 @@
 [ext_resource type="Texture2D" uid="uid://c4b2ndmiuv1bs" path="res://assets/Adventurer-1.5/Individual Sprites/adventurer-run-04.png" id="12_fl7of"]
 [ext_resource type="FontFile" uid="uid://dostsdiopdo7" path="res://fonts/m5x7.ttf" id="13_2qma6"]
 [ext_resource type="Texture2D" uid="uid://bqmsjxxoyys74" path="res://assets/Adventurer-1.5/Individual Sprites/adventurer-run-05.png" id="13_xapp3"]
-[ext_resource type="PackedScene" uid="uid://dv5twskred0wl" path="res://scenes/scroll.tscn" id="14_arqyf"]
+[ext_resource type="PackedScene" path="res://scenes/scroll.tscn" id="14_arqyf"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_wtllf"]
 animations = [{
