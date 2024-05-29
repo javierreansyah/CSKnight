@@ -10,6 +10,11 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 @onready var animated_sprite = $AnimatedSprite2D
 @onready var all_interactions = []
 @onready var interaction_label = $InteractionComponent/InteractionLabel
+@onready var scroll = $Scroll
+
+
+
+signal scroll_book
 
 var is_dead = false
 
@@ -67,20 +72,22 @@ func _on_interaction_area_area_exited(area):
 	update_interaction()
 
 func update_interaction():
-	if all_interactions and not all_interactions[0].has_interacted:
+	if all_interactions && !all_interactions[0].has_interacted:
+		scroll.in_area()
 		interaction_label.text = "[E] to interact"
 	else:
+		scroll.not_in_area()
 		interaction_label.text = ""
 
 func execute_interaction():
 	if all_interactions and not all_interactions[0].has_interacted:
 		var current_interaction = all_interactions[0]
-		print("Halo")
-		current_interaction.has_interacted = true
+		all_interactions[0].has_interacted = true
+		scroll.open_scroll()
 		update_interaction()
 
 func die():
 	is_dead = true
 	animated_sprite.play("dead")
-	velocity = Vector2.ZERO  # Stop all movement
-	emit_signal("player_died")  # Emit the signal when the player dies
+	velocity = Vector2.ZERO
+	emit_signal("player_died")

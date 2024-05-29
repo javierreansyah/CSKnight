@@ -1,0 +1,158 @@
+[gd_scene load_steps=18 format=3 uid="uid://dv5twskred0wl"]
+
+[ext_resource type="Script" path="res://scripts/scroll.gd" id="1_0wtvy"]
+[ext_resource type="Texture2D" uid="uid://b8mgp16fk2uhu" path="res://assets/ScrollKit/pngs/medium.png" id="1_or8jy"]
+[ext_resource type="Texture2D" uid="uid://cnghaor8q6vdb" path="res://assets/ScrollKit/pngs/closed.png" id="2_h2ncj"]
+[ext_resource type="FontFile" uid="uid://dostsdiopdo7" path="res://fonts/m5x7.ttf" id="4_y1rdq"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3yxh6"]
+atlas = ExtResource("2_h2ncj")
+region = Rect2(0, 0, 1157, 314)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_kixpn"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3yxh6")
+}],
+"loop": true,
+"name": &"close-scroll",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eq3hf"]
+atlas = ExtResource("1_or8jy")
+region = Rect2(0, 0, 1077, 1397)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b158l"]
+atlas = ExtResource("2_h2ncj")
+region = Rect2(0, 0, 1157, 314)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ssffu"]
+atlas = ExtResource("2_h2ncj")
+region = Rect2(0, 0, 1157, 314)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k7hvj"]
+atlas = ExtResource("1_or8jy")
+region = Rect2(0, 0, 1077, 1397)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_mhidd"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_eq3hf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b158l")
+}],
+"loop": true,
+"name": &"close-scroll",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ssffu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k7hvj")
+}],
+"loop": false,
+"name": &"open-scroll",
+"speed": 5.0
+}]
+
+[sub_resource type="LabelSettings" id="LabelSettings_x42k7"]
+font = ExtResource("4_y1rdq")
+font_size = 50
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_k5mx5"]
+font = ExtResource("4_y1rdq")
+font_size = 40
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_qj7ku"]
+font = ExtResource("4_y1rdq")
+font_size = 40
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_idxrq"]
+font = ExtResource("4_y1rdq")
+font_size = 40
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_l3gtp"]
+font = ExtResource("4_y1rdq")
+font_size = 40
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_unquv"]
+font = ExtResource("4_y1rdq")
+font_size = 40
+font_color = Color(0, 0, 0, 1)
+
+[node name="Area2D" type="Area2D"]
+script = ExtResource("1_0wtvy")
+
+[node name="Scroll" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.0160425, 0.0178394)
+sprite_frames = SubResource("SpriteFrames_kixpn")
+animation = &"close-scroll"
+
+[node name="ScrollQ" type="AnimatedSprite2D" parent="."]
+position = Vector2(9.53674e-07, 37)
+scale = Vector2(0.123657, 0.123657)
+sprite_frames = SubResource("SpriteFrames_mhidd")
+animation = &"close-scroll"
+
+[node name="QuestionLabel" type="Label" parent="ScrollQ"]
+offset_left = -307.302
+offset_top = -242.608
+offset_right = 315.698
+offset_bottom = -107.608
+text = "question"
+label_settings = SubResource("LabelSettings_x42k7")
+horizontal_alignment = 1
+
+[node name="Option1" type="Label" parent="ScrollQ"]
+offset_left = -315.0
+offset_top = -153.565
+offset_right = 308.0
+offset_bottom = -104.565
+text = "[1] Answer 1"
+label_settings = SubResource("LabelSettings_k5mx5")
+
+[node name="Option2" type="Label" parent="ScrollQ"]
+offset_left = -315.0
+offset_top = -96.6525
+offset_right = 308.0
+offset_bottom = -40.6525
+text = "[2] Answer 2"
+label_settings = SubResource("LabelSettings_qj7ku")
+
+[node name="Option3" type="Label" parent="ScrollQ"]
+offset_left = -315.0
+offset_top = -40.7395
+offset_right = 308.0
+offset_bottom = 8.26053
+text = "[3] Answer 3"
+label_settings = SubResource("LabelSettings_idxrq")
+
+[node name="Option4" type="Label" parent="ScrollQ"]
+offset_left = -315.0
+offset_top = 16.2607
+offset_right = 324.0
+offset_bottom = 81.2607
+text = "[4] Answer 4"
+label_settings = SubResource("LabelSettings_l3gtp")
+
+[node name="CountdownTimer" type="Timer" parent="ScrollQ"]
+
+[node name="CountdownLabel" type="Label" parent="ScrollQ"]
+offset_left = -16.1738
+offset_top = -315.389
+offset_right = 23.8262
+offset_bottom = -283.389
+text = "10"
+label_settings = SubResource("LabelSettings_unquv")
+horizontal_alignment = 1
