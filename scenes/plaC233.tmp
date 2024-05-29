@@ -1,0 +1,201 @@
+[gd_scene load_steps=37 format=3 uid="uid://xhfvlhmdefy4"]
+
+[ext_resource type="Script" path="res://scripts/player.gd" id="1_hkdsn"]
+[ext_resource type="Texture2D" uid="uid://8d582xnqvubo" path="res://assets/Hero Knight/Hero Knight/Sprites/HeroKnight/Death/HeroKnight_Death_0.png" id="2_vnf3g"]
+[ext_resource type="Texture2D" uid="uid://by5cubokk5axk" path="res://assets/Hero Knight/Hero Knight/Sprites/HeroKnight/Death/HeroKnight_Death_1.png" id="3_r05um"]
+[ext_resource type="Texture2D" uid="uid://df0lfe3h0ovpu" path="res://assets/Hero Knight/Hero Knight/Sprites/HeroKnight/Death/HeroKnight_Death_2.png" id="4_ypbqu"]
+[ext_resource type="Texture2D" uid="uid://deer4okrlgpke" path="res://assets/Hero Knight/Hero Knight/Sprites/HeroKnight/Death/HeroKnight_Death_3.png" id="5_17430"]
+[ext_resource type="Texture2D" uid="uid://qbiaxyg6su4e" path="res://assets/Hero Knight/Hero Knight/Sprites/HeroKnight/Death/HeroKnight_Death_4.png" id="6_vqxvq"]
+[ext_resource type="Texture2D" uid="uid://b6aji0mjl0qrp" path="res://assets/Hero Knight/Hero Knight/Sprites/HeroKnight/Death/HeroKnight_Death_5.png" id="7_6xs3a"]
+[ext_resource type="Texture2D" uid="uid://7ow744uecv7g" path="res://assets/Hero Knight/Hero Knight/Sprites/HeroKnight/Death/HeroKnight_Death_6.png" id="8_v2wly"]
+[ext_resource type="Texture2D" uid="uid://dwcp7drxojpps" path="res://assets/Hero Knight/Hero Knight/Sprites/HeroKnight/Death/HeroKnight_Death_7.png" id="9_8ufje"]
+[ext_resource type="Texture2D" uid="uid://ok4fxw6jt4im" path="res://assets/Hero Knight/Hero Knight/Sprites/HeroKnight/Death/HeroKnight_Death_8.png" id="10_nvnmg"]
+[ext_resource type="Texture2D" uid="uid://jdo5apnyy1yj" path="res://assets/Hero Knight/Hero Knight/Sprites/HeroKnight/Death/HeroKnight_Death_9.png" id="11_cbnrp"]
+[ext_resource type="Texture2D" uid="uid://b88rar2gwh8u5" path="res://assets/Hero Knight/Hero Knight/Sprites/HeroKnight/Idle/HeroKnight_Idle_0.png" id="12_8hh43"]
+[ext_resource type="FontFile" uid="uid://dostsdiopdo7" path="res://fonts/m5x7.ttf" id="13_2qma6"]
+[ext_resource type="Texture2D" uid="uid://fo4b1bg3aifx" path="res://assets/Hero Knight/Hero Knight/Sprites/HeroKnight/Idle/HeroKnight_Idle_1.png" id="13_x14xc"]
+[ext_resource type="Texture2D" uid="uid://cm72q6rey2je6" path="res://assets/Hero Knight/Hero Knight/Sprites/HeroKnight/Idle/HeroKnight_Idle_2.png" id="14_4e2t2"]
+[ext_resource type="PackedScene" uid="uid://d2ro52gvtha7g" path="res://scenes/scroll.tscn" id="14_arqyf"]
+[ext_resource type="Texture2D" uid="uid://m2cxboj48wie" path="res://assets/Hero Knight/Hero Knight/Sprites/HeroKnight/Idle/HeroKnight_Idle_3.png" id="15_yhemi"]
+[ext_resource type="Texture2D" uid="uid://csrnhceoqcl2m" path="res://assets/Hero Knight/Hero Knight/Sprites/HeroKnight/Idle/HeroKnight_Idle_4.png" id="16_pjd5x"]
+[ext_resource type="Texture2D" uid="uid://ct2l7kclv1f04" path="res://assets/Hero Knight/Hero Knight/Sprites/HeroKnight/Idle/HeroKnight_Idle_5.png" id="17_35q5x"]
+[ext_resource type="Texture2D" uid="uid://b3ao6jaew5vu3" path="res://assets/Hero Knight/Hero Knight/Sprites/HeroKnight/Idle/HeroKnight_Idle_6.png" id="18_vsa0w"]
+[ext_resource type="Texture2D" uid="uid://ifjjngir0x2w" path="res://assets/Hero Knight/Hero Knight/Sprites/HeroKnight/Idle/HeroKnight_Idle_7.png" id="19_16d7o"]
+[ext_resource type="Texture2D" uid="uid://dv5lh4urrvouy" path="res://assets/Hero Knight/Hero Knight/Sprites/HeroKnight/Jump/HeroKnight_Jump_2.png" id="22_vu14f"]
+[ext_resource type="Texture2D" uid="uid://cvkpodtq8l3wa" path="res://assets/Hero Knight/Hero Knight/Sprites/HeroKnight/Run/HeroKnight_Run_0.png" id="23_2abds"]
+[ext_resource type="Texture2D" uid="uid://cjpkttdjnh4x0" path="res://assets/Hero Knight/Hero Knight/Sprites/HeroKnight/Run/HeroKnight_Run_1.png" id="24_qsm1v"]
+[ext_resource type="Texture2D" uid="uid://dydkdhodjm1pq" path="res://assets/Hero Knight/Hero Knight/Sprites/HeroKnight/Run/HeroKnight_Run_2.png" id="25_q81r0"]
+[ext_resource type="Texture2D" uid="uid://cjyj4tkclx31n" path="res://assets/Hero Knight/Hero Knight/Sprites/HeroKnight/Run/HeroKnight_Run_3.png" id="26_4sqea"]
+[ext_resource type="Texture2D" uid="uid://dop2vf7voatav" path="res://assets/Hero Knight/Hero Knight/Sprites/HeroKnight/Run/HeroKnight_Run_4.png" id="27_bd1wr"]
+[ext_resource type="Texture2D" uid="uid://dowcg2rt83fjk" path="res://assets/Hero Knight/Hero Knight/Sprites/HeroKnight/Run/HeroKnight_Run_5.png" id="28_5ocqx"]
+[ext_resource type="Texture2D" uid="uid://drryd2vqnciwx" path="res://assets/Hero Knight/Hero Knight/Sprites/HeroKnight/Run/HeroKnight_Run_6.png" id="29_gt5fh"]
+[ext_resource type="Texture2D" uid="uid://bw0xqcrr4l6up" path="res://assets/Hero Knight/Hero Knight/Sprites/HeroKnight/Run/HeroKnight_Run_7.png" id="30_occhw"]
+[ext_resource type="Texture2D" uid="uid://bpajwjhamkpb6" path="res://assets/Hero Knight/Hero Knight/Sprites/HeroKnight/Run/HeroKnight_Run_8.png" id="31_t05tb"]
+[ext_resource type="Texture2D" uid="uid://c7ur1enk6lghy" path="res://assets/Hero Knight/Hero Knight/Sprites/HeroKnight/Run/HeroKnight_Run_9.png" id="32_b5gpw"]
+[ext_resource type="AudioStream" uid="uid://codpb3tllsbac" path="res://assets/RPG_Essentials_Free/12_Player_Movement_SFX/08_Step_rock_02.wav" id="33_3fpp3"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_wtllf"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_vnf3g")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_r05um")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_ypbqu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_17430")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_vqxvq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_6xs3a")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_v2wly")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_8ufje")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_nvnmg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_cbnrp")
+}],
+"loop": false,
+"name": &"dead",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("12_8hh43")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_x14xc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_4e2t2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_yhemi")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_pjd5x")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_35q5x")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_vsa0w")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_16d7o")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("22_vu14f")
+}],
+"loop": true,
+"name": &"jump",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("23_2abds")
+}, {
+"duration": 1.0,
+"texture": ExtResource("24_qsm1v")
+}, {
+"duration": 1.0,
+"texture": ExtResource("25_q81r0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("26_4sqea")
+}, {
+"duration": 1.0,
+"texture": ExtResource("27_bd1wr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("28_5ocqx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("29_gt5fh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("30_occhw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("31_t05tb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("32_b5gpw")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 10.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_d18ab"]
+size = Vector2(18, 38)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_et5r1"]
+radius = 33.0606
+
+[node name="Player" type="CharacterBody2D"]
+collision_layer = 2
+script = ExtResource("1_hkdsn")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -26)
+sprite_frames = SubResource("SpriteFrames_wtllf")
+animation = &"jump"
+autoplay = "idle"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -20)
+shape = SubResource("RectangleShape2D_d18ab")
+
+[node name="InteractionComponent" type="Node2D" parent="."]
+
+[node name="InteractionArea" type="Area2D" parent="InteractionComponent"]
+z_index = 10
+collision_layer = 0
+collision_mask = 4
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionComponent/InteractionArea"]
+position = Vector2(0, -13)
+shape = SubResource("CircleShape2D_et5r1")
+
+[node name="InteractionLabel" type="Label" parent="InteractionComponent"]
+offset_left = -79.0
+offset_top = -58.0
+offset_right = 79.0
+offset_bottom = -45.0
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("13_2qma6")
+theme_override_font_sizes/font_size = 16
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Scroll" parent="." instance=ExtResource("14_arqyf")]
+position = Vector2(-1, -37)
+
+[node name="walking" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("33_3fpp3")
+
+[node name="WalkingTimer" type="Timer" parent="."]
+wait_time = 0.1
+
+[connection signal="area_entered" from="InteractionComponent/InteractionArea" to="." method="_on_interaction_area_area_entered"]
+[connection signal="area_exited" from="InteractionComponent/InteractionArea" to="." method="_on_interaction_area_area_exited"]
+[connection signal="timeout" from="WalkingTimer" to="." method="_on_walking_timer_timeout"]

@@ -1,9 +1,11 @@
-[gd_scene load_steps=16 format=3 uid="uid://dv5twskred0wl"]
+[gd_scene load_steps=18 format=3 uid="uid://d2ro52gvtha7g"]
 
 [ext_resource type="Script" path="res://scripts/scroll.gd" id="1_0wtvy"]
 [ext_resource type="Texture2D" uid="uid://b8mgp16fk2uhu" path="res://assets/ScrollKit/pngs/medium.png" id="1_or8jy"]
 [ext_resource type="Texture2D" uid="uid://cnghaor8q6vdb" path="res://assets/ScrollKit/pngs/closed.png" id="2_h2ncj"]
 [ext_resource type="FontFile" uid="uid://dostsdiopdo7" path="res://fonts/m5x7.ttf" id="4_y1rdq"]
+[ext_resource type="AudioStream" uid="uid://dp0rgtnh1afd0" path="res://assets/RPG_Essentials_Free/8_Buffs_Heals_SFX/16_Atk_buff_04.wav" id="5_sbg5g"]
+[ext_resource type="AudioStream" uid="uid://cyy3qwvtx353g" path="res://assets/RPG_Essentials_Free/10_UI_Menu_SFX/013_Confirm_03.wav" id="6_m5l2f"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_eq3hf"]
 atlas = ExtResource("1_or8jy")
@@ -89,43 +91,48 @@ sprite_frames = SubResource("SpriteFrames_mhidd")
 animation = &"close-scroll"
 
 [node name="QuestionLabel" type="Label" parent="ScrollQ"]
-offset_left = -307.302
-offset_top = -242.608
-offset_right = 315.698
-offset_bottom = -107.608
+offset_left = -307.0
+offset_top = -267.0
+offset_right = 316.0
+theme_override_font_sizes/font_size = 0
 text = "question"
 label_settings = SubResource("LabelSettings_x42k7")
 horizontal_alignment = 1
+autowrap_mode = 3
 
 [node name="Option1" type="Label" parent="ScrollQ"]
 offset_left = -315.0
-offset_top = -153.565
+offset_top = 40.4344
 offset_right = 308.0
-offset_bottom = -104.565
+offset_bottom = 89.4344
+theme_override_font_sizes/font_size = 8
 text = "[1] Answer 1"
 label_settings = SubResource("LabelSettings_k5mx5")
 
 [node name="Option2" type="Label" parent="ScrollQ"]
 offset_left = -315.0
-offset_top = -96.6525
+offset_top = 97.3469
 offset_right = 308.0
-offset_bottom = -40.6525
+offset_bottom = 153.347
+theme_override_font_sizes/font_size = 4
 text = "[2] Answer 2"
 label_settings = SubResource("LabelSettings_qj7ku")
 
 [node name="Option3" type="Label" parent="ScrollQ"]
 offset_left = -315.0
-offset_top = -40.7395
+offset_top = 153.26
 offset_right = 308.0
-offset_bottom = 8.26053
+offset_bottom = 202.26
+theme_override_font_sizes/font_size = 4
 text = "[3] Answer 3"
 label_settings = SubResource("LabelSettings_idxrq")
 
 [node name="Option4" type="Label" parent="ScrollQ"]
 offset_left = -315.0
-offset_top = 16.2607
+offset_top = 210.26
 offset_right = 324.0
-offset_bottom = 81.2607
+offset_bottom = 275.26
+theme_override_font_sizes/font_size = 4
 text = "[4] Answer 4"
 label_settings = SubResource("LabelSettings_l3gtp")
 
@@ -139,3 +146,11 @@ offset_bottom = -283.389
 text = "10"
 label_settings = SubResource("LabelSettings_unquv")
 horizontal_alignment = 1
+
+[node name="Correct" type="AudioStreamPlayer2D" parent="ScrollQ"]
+position = Vector2(-7.71225e-06, -299.215)
+scale = Vector2(8.08689, 8.08689)
+stream = ExtResource("5_sbg5g")
+
+[node name="OpenScroll" type="AudioStreamPlayer2D" parent="ScrollQ"]
+stream = ExtResource("6_m5l2f")
