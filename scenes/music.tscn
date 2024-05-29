@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://vf7tqpdiw3ij"]
+
+[ext_resource type="AudioStream" uid="uid://pa4i01iqoqf5" path="res://assets/musics/Y2meta.app - No Worries (128 kbps).mp3" id="1_ypgd1"]
+
+[node name="Music" type="AudioStreamPlayer"]
+stream = ExtResource("1_ypgd1")
+autoplay = true
